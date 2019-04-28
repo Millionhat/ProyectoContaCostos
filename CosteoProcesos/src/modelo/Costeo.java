@@ -19,7 +19,7 @@ public class Costeo {
 	private double MDStarted;
 	
 	private double finished;
-	private double MODSFinished;
+	private double MODFinished;
 	private double CIFFinished;
 	private double MDFinished;
 	private double percentMODFinished;
@@ -82,5 +82,14 @@ public class Costeo {
 		return valoresUnitarios;
 	}
 	
-	
+	public double[] darValorAsignado() {
+		double[] valores=new double[5];
+		valores[0]= MDProcess+MODProcess+CIFProcess;
+		valores[1]=MDStarted+MODStarted+CIFStarted;
+		valores[2]=valores[0]+valores[1];
+		valores[3]=MDFinished+MODFinished+CIFFinished;
+		valores[4]=valores[2]+valores[3];
+		
+		return valores;
+	}
 }
