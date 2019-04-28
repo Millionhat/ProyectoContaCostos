@@ -1,7 +1,13 @@
 package modelo;
 
 public class Costeo {
+<<<<<<< HEAD
 
+=======
+	public static final int PEPS=0;
+	public static final int PONDERADO=0;
+	
+>>>>>>> parent of ecaf102... editado constantes de costeo
 	private double inProcess;
 	private double MODProcess;
 	private double CIFProcess;
