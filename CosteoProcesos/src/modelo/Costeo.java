@@ -32,7 +32,7 @@ public class Costeo {
 	
 	private double[] valoresUnitarios;
 	
-	public Costeo() {
+	public Costeo(double[] info) {
 		
 	}
 	public double flujoFisico() {
