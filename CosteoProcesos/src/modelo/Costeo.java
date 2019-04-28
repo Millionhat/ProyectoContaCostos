@@ -1,17 +1,10 @@
 package modelo;
 
 public class Costeo {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
 	public static final int PEPS=0;
-	public static final int PONDERADO=0;
-	
->>>>>>> parent of ecaf102... editado constantes de costeo
-=======
+	public static final int PONDERADO=1;
 
->>>>>>> parent of 4b7a9df... implementado produccion equivalente
 	private double inProcess;
 	private double MODProcess;
 	private double CIFProcess;
@@ -33,19 +26,26 @@ public class Costeo {
 	private double percentMDFinished;
 	private double percentCIFinished;
 	
-	private boolean PepsOPonderado;
+	private int PepsOPonderado;
+	
 	
 	public Costeo() {
 		
 	}
 	public double flujoFisico() {
-		return IIP+UE;
+		return inProcess+started;
 	}
 	
-	public double[][] produccionEquivalente() {
+	public void produccionEquivalente() {
 		double produccionEquivalente[][]=new double [4][3];
-		for(int i=0;i<3;i++) {
-			produccionEquivalente[0][i]=IIP;
+		if(PepsOPonderado==PEPS) {
+			produccionEquivalente[0][0]=(1-percentMDProcess)*inProcess;
+			produccionEquivalente[0][1]=(1-percentMODProcess)*inProcess;
+			produccionEquivalente[0][2]=(1-percentCIFProcess)*inProcess;
+		}else if(PepsOPonderado==PONDERADO) {
+			for(int i=0;i<3;i++) {
+				produccionEquivalente[0][i]=started;
+			}
 		}
 		produccionEquivalente[1][0]=
 		produccionEquivalente[1][1]=
@@ -57,6 +57,6 @@ public class Costeo {
         produccionEquivalente[3][1]=
         produccionEquivalente[3][2]=
 
-		return produccionEquivalente;
+		
 	}
 }
