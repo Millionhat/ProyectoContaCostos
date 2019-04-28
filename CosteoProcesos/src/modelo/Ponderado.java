@@ -39,7 +39,7 @@ private double IIP;
         produccionEquivalente[3][0]=
         produccionEquivalente[3][1]=
         produccionEquivalente[3][2]=
-        		
+
 		return produccionEquivalente;
 	}
 }
