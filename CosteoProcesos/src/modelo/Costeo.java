@@ -2,7 +2,7 @@ package modelo;
 
 public class Costeo {
 	public static final int PEPS=0;
-	public static final int PONDERADO=0;
+	public static final int PONDERADO=1;
 	
 	private double inProcess;
 	private double MODProcess;
@@ -34,6 +34,7 @@ public class Costeo {
 	public Costeo() {
 		
 	}
+	
 	public double flujoFisico() {
 		return inProcess+started;
 	}
