@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+   <children>
+      <Label layoutX="204.0" layoutY="14.0" text="Costeo por procesos">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Label>
+      <VBox alignment="TOP_CENTER" layoutX="17.0" layoutY="100.0" prefHeight="251.0" prefWidth="156.0">
+         <children>
+            <Label text="Inventario inicial">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="unitsInitialTF" />
+            <Label text="Porcentaje y valor MD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="initPercentMDTF" />
+            <TextField fx:id="initValueMDTF" />
+            <Label text="Porcentaje y valor MOD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="initPercentMODTF" />
+            <TextField fx:id="initValueMODTF" />
+            <Label text="Porcentaje y valor CIF">
+               <font>
+                  <Font name="Century Gothic" />
+               </font>
+            </Label>
+            <TextField fx:id="initPercentCIFTF" />
+            <TextField fx:id="initValueCIFTF" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="430.0" layoutY="100.0" prefHeight="251.0" prefWidth="156.0">
+         <children>
+            <Label text="Inventario final">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="finUnitsTF" />
+            <Label text="Porcentaje MD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="finPercentMDTF" />
+            <Label text="Porcentaje MOD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="finPercentMODTF" />
+            <Label text="Porcentaje CIF">
+               <font>
+                  <Font name="Century Gothic" />
+               </font>
+            </Label>
+            <TextField fx:id="finPercentCIFTF" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="222.0" layoutY="100.0" prefHeight="251.0" prefWidth="156.0">
+         <children>
+            <Label text="Iniciados y terminados">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="unitsStartedEndedTF" />
+            <Label text="Valor MD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="valueMDTF" />
+            <Label text="Valor MOD">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="valueMODTF" />
+            <Label text="Valor CIF">
+               <font>
+                  <Font name="Century Gothic" />
+               </font>
+            </Label>
+            <TextField fx:id="valueCIFTF" />
+         </children>
+      </VBox>
+      <Button fx:id="pepsButton" layoutX="263.0" layoutY="351.0" mnemonicParsing="false" onAction="#pepsPressed" prefHeight="25.0" prefWidth="74.0" text="PEPS" />
+      <Button fx:id="ponderadoButton" layoutX="471.0" layoutY="351.0" mnemonicParsing="false" onAction="#ponderadoPressed" text="Ponderado" />
+   </children>
+</Pane>
