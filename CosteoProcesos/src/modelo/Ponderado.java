@@ -26,16 +26,19 @@ private double IIP;
 	}
 	
 	public double[][] produccionEquivalente() {
-		double produccionEquivalente[][]=new double [4][4];
-		for(int i=0;i<4;i++) {
+		double produccionEquivalente[][]=new double [4][3];
+		for(int i=0;i<3;i++) {
 			produccionEquivalente[0][i]=IIP;
 		}
-		produccionEquivalente[1][]=
-		produccionEquivalente[1][]=
-		produccionEquivalente[1][]=
-		produccionEquivalente[1][]=
-		produccionEquivalente[1][]=
-        produccionEquivalente[1][]=
+		produccionEquivalente[1][0]=
+		produccionEquivalente[1][1]=
+		produccionEquivalente[1][2]=
+		produccionEquivalente[2][0]=
+		produccionEquivalente[2][1]=
+        produccionEquivalente[2][2]=
+        produccionEquivalente[3][0]=
+        produccionEquivalente[3][1]=
+        produccionEquivalente[3][2]=
         		
 		return produccionEquivalente;
 	}
