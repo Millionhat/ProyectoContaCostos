@@ -19,9 +19,6 @@ public class Costeo {
 	private double MDStarted;
 	
 	private double finished;
-	private double MODFinished;
-	private double CIFFinished;
-	private double MDFinished;
 	private double percentMODFinished;
 	private double percentMDFinished;
 	private double percentCIFFinished;
@@ -32,15 +29,30 @@ public class Costeo {
 	
 	private double[] valoresUnitarios;
 	
-	public Costeo(double[] info) {
-		
+	public Costeo(double[] info, int PepsOPonderado) {
+		this.PepsOPonderado = PepsOPonderado;
+		inProcess = info[0];
+		percentMDProcess = info[1];
+		MDProcess = info[2];
+		percentMODProcess = info[3];
+		MODProcess = info[4];
+		percentCIFProcess = info[5];
+		CIFProcess = info[6];
+		started = info[7];
+		MDStarted = info[8];
+		MODStarted = info[9];
+		CIFStarted = info[10];
+		finished = info[11];
+		percentMDFinished = info[12];
+		percentMODFinished = info[13];
+		percentCIFFinished = info[14];
 	}
 	public double flujoFisico() {
 		return inProcess+started;
 	}
 	
 	public void produccionEquivalente() {
-		double produccionEquivalente[][]=new double [4][3];
+		produccionEquivalente = new double [4][3];
 		if(PepsOPonderado==PEPS) {
 			produccionEquivalente[0][0]=(1-percentMDProcess)*inProcess;
 			produccionEquivalente[0][1]=(1-percentMODProcess)*inProcess;
@@ -77,19 +89,29 @@ public class Costeo {
 			valoresUnitarios[1]=(MODStarted+MODProcess)/produccionEquivalente[3][1];
 			valoresUnitarios[2]=(CIFStarted+CIFProcess)/produccionEquivalente[3][2];
 		}
+		valoresUnitarios[3] = valoresUnitarios[0] + valoresUnitarios[1] + valoresUnitarios[2];
 	}
 	public double[] darValUnitario() {
 		return valoresUnitarios;
 	}
 	
 	public double[] darValorAsignado() {
-		double[] valores=new double[5];
-		valores[0]= MDProcess+MODProcess+CIFProcess;
-		valores[1]=MDStarted+MODStarted+CIFStarted;
-		valores[2]=valores[0]+valores[1];
-		valores[3]=MDFinished+MODFinished+CIFFinished;
-		valores[4]=valores[2]+valores[3];
-		
+		double[] valores=new double[3];
+		if(PepsOPonderado == PEPS) {
+			valores[0] = ((MDProcess + MODProcess + CIFProcess) + (produccionEquivalente[0][0] * valoresUnitarios[0])
+					+ (produccionEquivalente[0][1] * valoresUnitarios[1]) + 
+					(produccionEquivalente[0][2] * valoresUnitarios[2])) + 
+					(started * valoresUnitarios[3]);
+			valores[1] = (produccionEquivalente[2][0] * valoresUnitarios[0])
+					+ (produccionEquivalente[2][1] * valoresUnitarios[1]) + 
+					(produccionEquivalente[2][2] * valoresUnitarios[2]);
+		}else {
+			valores[0] =  ((started + inProcess) * valoresUnitarios[3]);
+			valores[1] = (produccionEquivalente[2][0] * valoresUnitarios[0])
+					+ (produccionEquivalente[2][1] * valoresUnitarios[1]) + 
+					(produccionEquivalente[2][2] * valoresUnitarios[2]);
+		}
+		valores[2] = valores[0] + valores[1];
 		return valores;
 	}
 }

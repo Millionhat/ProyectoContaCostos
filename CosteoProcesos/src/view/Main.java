@@ -21,7 +21,7 @@ public class Main extends Application{
 		Parent root = loader.load();
 		Scene mainScene = new Scene(root);
 		primaryStage.setScene(mainScene);
-		primaryStage.setTitle("Costeo por Procesos");
+		primaryStage.setTitle("Costeo por procesos");
 		primaryStage.show();
 		
 	}
