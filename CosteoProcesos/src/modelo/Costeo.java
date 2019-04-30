@@ -32,20 +32,20 @@ public class Costeo {
 	public Costeo(double[] info, int PepsOPonderado) {
 		this.PepsOPonderado = PepsOPonderado;
 		inProcess = info[0];
-		percentMDProcess = info[1];
+		percentMDProcess = info[1]/100;
 		MDProcess = info[2];
-		percentMODProcess = info[3];
+		percentMODProcess = info[3]/100;
 		MODProcess = info[4];
-		percentCIFProcess = info[5];
+		percentCIFProcess = info[5]/100;
 		CIFProcess = info[6];
 		started = info[7];
 		MDStarted = info[8];
 		MODStarted = info[9];
 		CIFStarted = info[10];
 		finished = info[11];
-		percentMDFinished = info[12];
-		percentMODFinished = info[13];
-		percentCIFFinished = info[14];
+		percentMDFinished = info[12]/100;
+		percentMODFinished = info[13]/100;
+		percentCIFFinished = info[14]/100;
 	}
 	public double flujoFisico() {
 		return inProcess+started;
@@ -63,9 +63,9 @@ public class Costeo {
 			}
 		}
 		
-		produccionEquivalente[1][0]=started;
-		produccionEquivalente[1][1]=started;
-		produccionEquivalente[1][2]=started;
+		produccionEquivalente[1][0]=started-finished;
+		produccionEquivalente[1][1]=started-finished;
+		produccionEquivalente[1][2]=started-finished;
 		produccionEquivalente[2][0]=percentMDFinished*finished;
 		produccionEquivalente[2][1]=percentMODFinished*finished;
         produccionEquivalente[2][2]=percentCIFFinished*finished;
@@ -101,12 +101,12 @@ public class Costeo {
 			valores[0] = ((MDProcess + MODProcess + CIFProcess) + (produccionEquivalente[0][0] * valoresUnitarios[0])
 					+ (produccionEquivalente[0][1] * valoresUnitarios[1]) + 
 					(produccionEquivalente[0][2] * valoresUnitarios[2])) + 
-					(started * valoresUnitarios[3]);
+					((started-finished) * valoresUnitarios[3]);
 			valores[1] = (produccionEquivalente[2][0] * valoresUnitarios[0])
 					+ (produccionEquivalente[2][1] * valoresUnitarios[1]) + 
 					(produccionEquivalente[2][2] * valoresUnitarios[2]);
 		}else {
-			valores[0] =  ((started + inProcess) * valoresUnitarios[3]);
+			valores[0] =  ((started-finished + inProcess) * valoresUnitarios[3]);
 			valores[1] = (produccionEquivalente[2][0] * valoresUnitarios[0])
 					+ (produccionEquivalente[2][1] * valoresUnitarios[1]) + 
 					(produccionEquivalente[2][2] * valoresUnitarios[2]);
